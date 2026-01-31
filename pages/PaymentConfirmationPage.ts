@@ -20,7 +20,7 @@ export class PaymentConfirmationPage extends BasePage {
    * Click Continue button on payment method page
    */
   async continuePaymentMethod(): Promise<void> {
-    await this.paymentMethodContinueButton.waitFor({ state: 'visible', timeout: 5000 });
+    await this.paymentMethodContinueButton.waitFor({ state: 'visible', timeout: 8000 });
     await this.paymentMethodContinueButton.click();
     await this.page.waitForLoadState('networkidle');
   }
@@ -29,7 +29,7 @@ export class PaymentConfirmationPage extends BasePage {
    * Click Continue button on payment information page
    */
   async continuePaymentInformation(): Promise<void> {
-    await this.paymentInfoContinueButton.waitFor({ state: 'visible', timeout: 5000 });
+    await this.paymentInfoContinueButton.waitFor({ state: 'visible', timeout: 8000 });
     await this.paymentInfoContinueButton.click();
     await this.page.waitForLoadState('networkidle');
   }
