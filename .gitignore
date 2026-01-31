@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+dist/
+
+# Environment variables
+.env
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Screenshots
+screenshots/*
+
+# Reports
+reports/html-reports/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test data with sensitive info
+test-data/users.private.json

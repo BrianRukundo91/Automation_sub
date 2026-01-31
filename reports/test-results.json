@@ -1,0 +1,562 @@
+{
+  "config": {
+    "configFile": "/Users/mac/Desktop/Projects (tech)/b_automation project/playwright.config.ts",
+    "rootDir": "/Users/mac/Desktop/Projects (tech)/b_automation project/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mac/Desktop/Projects (tech)/b_automation project/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/mac/Desktop/Projects (tech)/b_automation project/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mac/Desktop/Projects (tech)/b_automation project/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/mac/Desktop/Projects (tech)/b_automation project/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mac/Desktop/Projects (tech)/b_automation project/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/mac/Desktop/Projects (tech)/b_automation project/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "reports/html-reports",
+          "open": "never"
+        }
+      ],
+      [
+        "line",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/test-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/junit-results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "runAgents": "none",
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.58.1",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "place-order.spec.ts",
+      "file": "place-order.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Place Order with Multiple Products",
+          "file": "place-order.spec.ts",
+          "line": 15,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC001: Add multiple products to cart",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 13949,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Starting to add 4 laptops to cart\n"
+                        },
+                        {
+                          "text": "Added laptop 1/4\n"
+                        },
+                        {
+                          "text": "Added laptop 2/4\n"
+                        },
+                        {
+                          "text": "Added laptop 3/4\n"
+                        },
+                        {
+                          "text": "Added laptop 4/4\n"
+                        },
+                        {
+                          "text": "Completed: 4 laptops added to cart\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Navigate to home page",
+                          "duration": 2604
+                        },
+                        {
+                          "title": "2. Add laptops to cart",
+                          "duration": 10870
+                        },
+                        {
+                          "title": "3. Verify cart item count",
+                          "duration": 17
+                        }
+                      ],
+                      "startTime": "2026-01-31T10:00:22.031Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f9c4ffe42c62f0536707-8b35e2cbb92767a4148a",
+              "file": "place-order.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "TC002: Verify shopping cart items and calculations",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 17717,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Starting to add 4 laptops to cart\n"
+                        },
+                        {
+                          "text": "Added laptop 1/4\n"
+                        },
+                        {
+                          "text": "Added laptop 2/4\n"
+                        },
+                        {
+                          "text": "Added laptop 3/4\n"
+                        },
+                        {
+                          "text": "Added laptop 4/4\n"
+                        },
+                        {
+                          "text": "Completed: 4 laptops added to cart\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Navigate to home page and add products",
+                          "duration": 13549
+                        },
+                        {
+                          "title": "2. Select shopping cart and view items",
+                          "duration": 1115
+                        },
+                        {
+                          "title": "3. Verify products are in cart",
+                          "duration": 25
+                        },
+                        {
+                          "title": "4. Accept terms and proceed to checkout",
+                          "duration": 2576
+                        }
+                      ],
+                      "startTime": "2026-01-31T10:00:22.028Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f9c4ffe42c62f0536707-c1eac8af5bfc53e5a54a",
+              "file": "place-order.spec.ts",
+              "line": 37,
+              "column": 7
+            },
+            {
+              "title": "TC003: Complete checkout process and verify order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 24910,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Starting to add 4 laptops to cart\n"
+                        },
+                        {
+                          "text": "Added laptop 1/4\n"
+                        },
+                        {
+                          "text": "Added laptop 2/4\n"
+                        },
+                        {
+                          "text": "Added laptop 3/4\n"
+                        },
+                        {
+                          "text": "Added laptop 4/4\n"
+                        },
+                        {
+                          "text": "Completed: 4 laptops added to cart\n"
+                        },
+                        {
+                          "text": "Clicking Continue button on Billing Address page...\n"
+                        },
+                        {
+                          "text": "In-Store Pickup initially selected: false\n"
+                        },
+                        {
+                          "text": "Checkbox is visible\n"
+                        },
+                        {
+                          "text": "Clicking In-Store Pickup checkbox...\n"
+                        },
+                        {
+                          "text": "In-Store Pickup after click: true\n"
+                        },
+                        {
+                          "text": "✓ In-Store Pickup is selected\n"
+                        },
+                        {
+                          "text": "Clicking Continue button on Shipping Address page...\n"
+                        },
+                        {
+                          "text": "Button selector: input[type=\"button\"].new-address-next-step-button[onclick*=\"Shipping.save()\"]\n"
+                        },
+                        {
+                          "text": "✓ Continue button is visible\n"
+                        },
+                        {
+                          "text": "Button HTML: <input type=\"button\" class=\"button-1 new-address-next-step-button\" title=\"Continue\" onclick=\"Shipping.save()\" value=\"Continue\">\n"
+                        },
+                        {
+                          "text": "Attempting to click Continue button...\n"
+                        },
+                        {
+                          "text": "✓ Click executed successfully\n"
+                        },
+                        {
+                          "text": "Clicking Confirm Order button...\n"
+                        },
+                        {
+                          "text": "Button selector: input[type=\"button\"].confirm-order-next-step-button[onclick*=\"ConfirmOrder.save()\"]\n"
+                        },
+                        {
+                          "text": "✓ Confirm button is visible\n"
+                        },
+                        {
+                          "text": "Button HTML: <input type=\"button\" class=\"button-1 confirm-order-next-step-button\" onclick=\"ConfirmOrder.save()\" value=\"Confirm\">\n"
+                        },
+                        {
+                          "text": "Attempting to click Confirm button...\n"
+                        },
+                        {
+                          "text": "✓ Click executed successfully\n"
+                        },
+                        {
+                          "text": "✓ Order confirmed\n"
+                        },
+                        {
+                          "text": "📄 Page content retrieved, searching for order number...\n"
+                        },
+                        {
+                          "text": "✓ Order #2207938 placed successfully (extracted from link)\n"
+                        },
+                        {
+                          "text": "Order placed successfully. Order #: 2207938\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Navigate and add products",
+                          "duration": 13582
+                        },
+                        {
+                          "title": "2. Go to cart and proceed to checkout",
+                          "duration": 2383
+                        },
+                        {
+                          "title": "3. Guest checkout and billing address",
+                          "duration": 3603
+                        },
+                        {
+                          "title": "4. Select shipping method (In-Store Pickup)",
+                          "duration": 2642
+                        },
+                        {
+                          "title": "5. Confirm payment method",
+                          "duration": 339
+                        },
+                        {
+                          "title": "6. Confirm payment information",
+                          "duration": 216
+                        },
+                        {
+                          "title": "7. Place order",
+                          "duration": 309
+                        },
+                        {
+                          "title": "8. Verify order confirmation",
+                          "duration": 1408
+                        }
+                      ],
+                      "startTime": "2026-01-31T10:00:22.029Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f9c4ffe42c62f0536707-a7c924d862c6961d6a06",
+              "file": "place-order.spec.ts",
+              "line": 73,
+              "column": 7
+            },
+            {
+              "title": "TC004: End-to-end order placement with price validation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 24421,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Starting to add 4 laptops to cart\n"
+                        },
+                        {
+                          "text": "Added laptop 1/4\n"
+                        },
+                        {
+                          "text": "Added laptop 2/4\n"
+                        },
+                        {
+                          "text": "Added laptop 3/4\n"
+                        },
+                        {
+                          "text": "Added laptop 4/4\n"
+                        },
+                        {
+                          "text": "Completed: 4 laptops added to cart\n"
+                        },
+                        {
+                          "text": "Clicking Continue button on Billing Address page...\n"
+                        },
+                        {
+                          "text": "In-Store Pickup initially selected: false\n"
+                        },
+                        {
+                          "text": "Checkbox is visible\n"
+                        },
+                        {
+                          "text": "Clicking In-Store Pickup checkbox...\n"
+                        },
+                        {
+                          "text": "In-Store Pickup after click: true\n"
+                        },
+                        {
+                          "text": "✓ In-Store Pickup is selected\n"
+                        },
+                        {
+                          "text": "Clicking Continue button on Shipping Address page...\n"
+                        },
+                        {
+                          "text": "Button selector: input[type=\"button\"].new-address-next-step-button[onclick*=\"Shipping.save()\"]\n"
+                        },
+                        {
+                          "text": "✓ Continue button is visible\n"
+                        },
+                        {
+                          "text": "Button HTML: <input type=\"button\" class=\"button-1 new-address-next-step-button\" title=\"Continue\" onclick=\"Shipping.save()\" value=\"Continue\">\n"
+                        },
+                        {
+                          "text": "Attempting to click Continue button...\n"
+                        },
+                        {
+                          "text": "✓ Click executed successfully\n"
+                        },
+                        {
+                          "text": "Clicking Confirm Order button...\n"
+                        },
+                        {
+                          "text": "Button selector: input[type=\"button\"].confirm-order-next-step-button[onclick*=\"ConfirmOrder.save()\"]\n"
+                        },
+                        {
+                          "text": "✓ Confirm button is visible\n"
+                        },
+                        {
+                          "text": "Button HTML: <input type=\"button\" class=\"button-1 confirm-order-next-step-button\" onclick=\"ConfirmOrder.save()\" value=\"Confirm\">\n"
+                        },
+                        {
+                          "text": "Attempting to click Confirm button...\n"
+                        },
+                        {
+                          "text": "✓ Click executed successfully\n"
+                        },
+                        {
+                          "text": "✓ Order confirmed\n"
+                        },
+                        {
+                          "text": "📄 Page content retrieved, searching for order number...\n"
+                        },
+                        {
+                          "text": "✓ Order #2207937 placed successfully (extracted from link)\n"
+                        },
+                        {
+                          "text": "E2E Test Passed - Order #2207937 placed successfully\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "1. Navigate home and add products",
+                          "duration": 13406
+                        },
+                        {
+                          "title": "2. Verify cart",
+                          "duration": 1171
+                        },
+                        {
+                          "title": "3. Proceed through checkout",
+                          "duration": 7660
+                        },
+                        {
+                          "title": "4. Confirm and verify order",
+                          "duration": 1658
+                        }
+                      ],
+                      "startTime": "2026-01-31T10:00:22.028Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f9c4ffe42c62f0536707-a090cc4a114b2b1008c6",
+              "file": "place-order.spec.ts",
+              "line": 138,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-01-31T10:00:21.354Z",
+    "duration": 131651.892,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "guestUser": {
+    "firstName": "Brian",
+    "lastName": "Kwiringira",
+    "email": "bb@ee.com",
+    "company": "Test Company",
+    "country": "Uganda",
+    "state": "Other (Non US)",
+    "city": "Kampala",
+    "address1": "munyonyo",
+    "address2": "ewfwef",
+    "zipCode": "3425",
+    "phoneNumber": "3223425",
+    "faxNumber": ""
+  }
+}

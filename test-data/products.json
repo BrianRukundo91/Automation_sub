@@ -1,0 +1,37 @@
+{
+  "products": [
+    {
+      "category": "notebooks",
+      "name": "14.1-inch Laptop",
+      "price": 1590.00,
+      "quantity": 2,
+      "type": "simple"
+    },
+    {
+      "category": "computers",
+      "name": "Build your own cheap computer",
+      "price": 815.00,
+      "quantity": 1,
+      "type": "configurable",
+      "configuration": {
+        "processor": "Medium [+15.00]",
+        "ram": "2 GB",
+        "hdd": "320 GB"
+      }
+    },
+    {
+      "category": "books",
+      "name": "Computing and Internet",
+      "price": 10.00,
+      "quantity": 1,
+      "type": "simple"
+    },
+    {
+      "category": "books",
+      "name": "Fiction",
+      "price": 24.00,
+      "quantity": 1,
+      "type": "simple"
+    }
+  ]
+}

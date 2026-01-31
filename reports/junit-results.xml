@@ -1,0 +1,92 @@
+<testsuites id="" name="" tests="4" failures="0" skipped="0" errors="0" time="131.651892">
+<testsuite name="place-order.spec.ts" timestamp="2026-01-31T10:00:21.410Z" hostname="chromium" tests="4" failures="0" skipped="0" time="80.997" errors="0">
+<testcase name="Place Order with Multiple Products › TC001: Add multiple products to cart" classname="place-order.spec.ts" time="13.949">
+<system-out>
+<![CDATA[Starting to add 4 laptops to cart
+Added laptop 1/4
+Added laptop 2/4
+Added laptop 3/4
+Added laptop 4/4
+Completed: 4 laptops added to cart
+]]>
+</system-out>
+</testcase>
+<testcase name="Place Order with Multiple Products › TC002: Verify shopping cart items and calculations" classname="place-order.spec.ts" time="17.717">
+<system-out>
+<![CDATA[Starting to add 4 laptops to cart
+Added laptop 1/4
+Added laptop 2/4
+Added laptop 3/4
+Added laptop 4/4
+Completed: 4 laptops added to cart
+]]>
+</system-out>
+</testcase>
+<testcase name="Place Order with Multiple Products › TC003: Complete checkout process and verify order" classname="place-order.spec.ts" time="24.91">
+<system-out>
+<![CDATA[Starting to add 4 laptops to cart
+Added laptop 1/4
+Added laptop 2/4
+Added laptop 3/4
+Added laptop 4/4
+Completed: 4 laptops added to cart
+Clicking Continue button on Billing Address page...
+In-Store Pickup initially selected: false
+Checkbox is visible
+Clicking In-Store Pickup checkbox...
+In-Store Pickup after click: true
+✓ In-Store Pickup is selected
+Clicking Continue button on Shipping Address page...
+Button selector: input[type="button"].new-address-next-step-button[onclick*="Shipping.save()"]
+✓ Continue button is visible
+Button HTML: <input type="button" class="button-1 new-address-next-step-button" title="Continue" onclick="Shipping.save()" value="Continue">
+Attempting to click Continue button...
+✓ Click executed successfully
+Clicking Confirm Order button...
+Button selector: input[type="button"].confirm-order-next-step-button[onclick*="ConfirmOrder.save()"]
+✓ Confirm button is visible
+Button HTML: <input type="button" class="button-1 confirm-order-next-step-button" onclick="ConfirmOrder.save()" value="Confirm">
+Attempting to click Confirm button...
+✓ Click executed successfully
+✓ Order confirmed
+📄 Page content retrieved, searching for order number...
+✓ Order #2207938 placed successfully (extracted from link)
+Order placed successfully. Order #: 2207938
+]]>
+</system-out>
+</testcase>
+<testcase name="Place Order with Multiple Products › TC004: End-to-end order placement with price validation" classname="place-order.spec.ts" time="24.421">
+<system-out>
+<![CDATA[Starting to add 4 laptops to cart
+Added laptop 1/4
+Added laptop 2/4
+Added laptop 3/4
+Added laptop 4/4
+Completed: 4 laptops added to cart
+Clicking Continue button on Billing Address page...
+In-Store Pickup initially selected: false
+Checkbox is visible
+Clicking In-Store Pickup checkbox...
+In-Store Pickup after click: true
+✓ In-Store Pickup is selected
+Clicking Continue button on Shipping Address page...
+Button selector: input[type="button"].new-address-next-step-button[onclick*="Shipping.save()"]
+✓ Continue button is visible
+Button HTML: <input type="button" class="button-1 new-address-next-step-button" title="Continue" onclick="Shipping.save()" value="Continue">
+Attempting to click Continue button...
+✓ Click executed successfully
+Clicking Confirm Order button...
+Button selector: input[type="button"].confirm-order-next-step-button[onclick*="ConfirmOrder.save()"]
+✓ Confirm button is visible
+Button HTML: <input type="button" class="button-1 confirm-order-next-step-button" onclick="ConfirmOrder.save()" value="Confirm">
+Attempting to click Confirm button...
+✓ Click executed successfully
+✓ Order confirmed
+📄 Page content retrieved, searching for order number...
+✓ Order #2207937 placed successfully (extracted from link)
+E2E Test Passed - Order #2207937 placed successfully
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
