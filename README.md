@@ -112,10 +112,10 @@ PAGE_STABILIZATION_DELAY_MS=500
 ### Step 4: Verify Setup
 
 ```bash
-npm run test:version
+npm run type-check
 ```
 
-Expected output: Shows Playwright version information
+Expected output: TypeScript compilation successful
 
 ---
 
@@ -133,7 +133,7 @@ Runs all tests in headless mode on all configured browsers (Chromium, Firefox, W
 
 **Chromium Only (Recommended for CI/CD)**
 ```bash
-npm run test:chromium
+npm run test:chrome
 ```
 *Fastest execution, ~26 seconds*
 
@@ -154,11 +154,6 @@ npm run test:webkit
 npm run test:headed
 ```
 
-**Chromium Headed**
-```bash
-npm run test:headed:chromium
-```
-
 ### Running Specific Tests
 
 **Single Test Case**
@@ -175,22 +170,17 @@ npx playwright test --grep "TC001|TC002"
 
 **Debug Mode** (Step through tests)
 ```bash
-npx playwright test --debug
+npm run test:debug
 ```
 
-**With UI Inspector** (Visual debugging)
+**HTML Report Generation**
 ```bash
-npx playwright test --ui
+npm run test:report
 ```
 
-**Headed Mode with Slowdown** (Watch tests in slow motion)
+**View HTML Report**
 ```bash
-npx playwright test --headed --headed-slowdown 2000
-```
-
-**Verbose Output**
-```bash
-npx playwright test --reporter=list
+npm run show-report
 ```
 
 ---
@@ -375,11 +365,13 @@ jobs:
 
 ---
 
-## Support & Documentation
+## Additional Documentation
 
-- **Playwright Docs**: https://playwright.dev
-- **TypeScript Docs**: https://www.typescriptlang.org/docs/
-- **Demo Web Shop**: https://demowebshop.tricentis.com
+This project includes comprehensive documentation:
+
+- **[AI Acceleration Document](./AI_ACCELERATION_DOCUMENT.md)** - Strategic guide for using AI tools to accelerate test automation development
+- **[Manual Test Cases](./test-data/test-cases.md)** - 5 detailed manual test cases for the Demo Web Shop with complete test steps and expected results
+- **[Performance Testing Plan](./test-data/performance-test-plan.md)** - Comprehensive performance testing strategy with test scenarios, parameters, and metrics
 
 ---
 
@@ -391,4 +383,5 @@ This project is provided as-is for testing and educational purposes.
 
 **Last Updated**: January 31, 2026  
 **Playwright Version**: v1.58.1  
-**Status**: Production Ready
+**Status**: Production Ready  
+**GitHub**: https://github.com/BrianRukundo91/Automation_sub
