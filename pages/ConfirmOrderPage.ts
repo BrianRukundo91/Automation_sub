@@ -22,14 +22,7 @@ export class ConfirmOrderPage extends BasePage {
    * Click Confirm Order button to place the order
    */
   async clickConfirmOrder(): Promise<void> {
-    await this.confirmButton.waitFor({ state: 'visible', timeout: 5000 });
-    
-    try {
-      await this.confirmButton.click({ timeout: 5000 });
-    } catch (error) {
-      console.error('Failed to click Confirm Order button:', error);
-      throw error;
-    }
+    await this.clickButton(this.confirmButton, 'Confirm Order');
   }
 
   /**

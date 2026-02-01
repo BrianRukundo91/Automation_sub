@@ -18,19 +18,19 @@ export class PaymentConfirmationPage extends BasePage {
 
   /**
    * Click Continue button on payment method page
+   * Uses extended timeout (8000ms) as payment buttons need extra time to become visible
    */
   async continuePaymentMethod(): Promise<void> {
-    await this.paymentMethodContinueButton.waitFor({ state: 'visible', timeout: 8000 });
-    await this.paymentMethodContinueButton.click();
+    await this.clickButton(this.paymentMethodContinueButton, 'Continue on Payment Method', 8000);
     await this.page.waitForLoadState('networkidle');
   }
 
   /**
    * Click Continue button on payment information page
+   * Uses extended timeout (8000ms) as payment buttons need extra time to become visible
    */
   async continuePaymentInformation(): Promise<void> {
-    await this.paymentInfoContinueButton.waitFor({ state: 'visible', timeout: 8000 });
-    await this.paymentInfoContinueButton.click();
+    await this.clickButton(this.paymentInfoContinueButton, 'Continue on Payment Information', 8000);
     await this.page.waitForLoadState('networkidle');
   }
 

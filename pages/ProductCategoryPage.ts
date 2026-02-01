@@ -11,9 +11,13 @@ export class ProductCategoryPage extends BasePage {
   readonly productGrid: Locator;
   readonly productItems: Locator;
   readonly pageTitle: Locator;
-  readonly sortByDropdown: Locator;
-  readonly displayPerPageDropdown: Locator;
+  readonly sortBySelect: Locator;
+  readonly displayPerPageSelect: Locator;
   readonly addToCartButtons: Locator;
+  readonly quantityInput: Locator;
+  readonly addToCartButton: Locator;
+  readonly successNotification: Locator;
+  readonly closeNotificationButton: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -21,9 +25,13 @@ export class ProductCategoryPage extends BasePage {
     this.productGrid = page.locator('.product-grid');
     this.productItems = page.locator('.product-item');
     this.pageTitle = page.locator('.page-title');
-    this.sortByDropdown = page.locator('select#products-orderby');
-    this.displayPerPageDropdown = page.locator('select#products-pagesize');
+    this.sortBySelect = page.locator('select#products-orderby');
+    this.displayPerPageSelect = page.locator('select#products-pagesize');
     this.addToCartButtons = page.locator('input[value="Add to cart"]');
+    this.quantityInput = page.locator('input.qty-input');
+    this.addToCartButton = page.locator('input.button-1.add-to-cart-button');
+    this.successNotification = page.locator('.bar-notification.success');
+    this.closeNotificationButton = page.locator('.bar-notification.success .close');
   }
 
   /**
@@ -54,21 +62,18 @@ export class ProductCategoryPage extends BasePage {
     
     // Set quantity if more than 1
     if (quantity > 1) {
-      const quantityInput = this.page.locator('input.qty-input');
-      await quantityInput.fill(quantity.toString());
+      await this.quantityInput.fill(quantity.toString());
     }
     
-    // Click add to cart button (use button-1 class to target details page button, not catalog buttons)
-    const addToCartButton = this.page.locator('input.button-1.add-to-cart-button');
-    await addToCartButton.click();
+    // Click add to cart button
+    await this.addToCartButton.click();
     
     // Wait for success notification
-    await this.page.waitForSelector('.bar-notification.success', { timeout: 10000 });
+    await this.successNotification.waitFor({ state: 'visible', timeout: 10000 });
     
     // Close the notification if it appears
-    const closeNotification = this.page.locator('.bar-notification.success .close');
-    if (await closeNotification.isVisible()) {
-      await closeNotification.click();
+    if (await this.closeNotificationButton.isVisible()) {
+      await this.closeNotificationButton.click();
     }
     
     // Go back to category page for next product

@@ -11,8 +11,8 @@ export class BillingAddressPage extends BasePage {
   readonly lastNameInput: Locator;
   readonly emailInput: Locator;
   readonly companyInput: Locator;
-  readonly countryDropdown: Locator;
-  readonly stateDropdown: Locator;
+  readonly countrySelect: Locator;
+  readonly stateSelect: Locator;
   readonly cityInput: Locator;
   readonly address1Input: Locator;
   readonly address2Input: Locator;
@@ -28,8 +28,8 @@ export class BillingAddressPage extends BasePage {
     this.lastNameInput = page.locator('input#BillingNewAddress_LastName');
     this.emailInput = page.locator('input#BillingNewAddress_Email');
     this.companyInput = page.locator('input#BillingNewAddress_Company');
-    this.countryDropdown = page.locator('select#BillingNewAddress_CountryId');
-    this.stateDropdown = page.locator('select#BillingNewAddress_StateProvinceId');
+    this.countrySelect = page.locator('select#BillingNewAddress_CountryId');
+    this.stateSelect = page.locator('select#BillingNewAddress_StateProvinceId');
     this.cityInput = page.locator('input#BillingNewAddress_City');
     this.address1Input = page.locator('input#BillingNewAddress_Address1');
     this.address2Input = page.locator('input#BillingNewAddress_Address2');
@@ -49,11 +49,11 @@ export class BillingAddressPage extends BasePage {
     await this.companyInput.fill(userData.company);
     
     // Select country
-    await this.countryDropdown.selectOption(userData.country);
+    await this.countrySelect.selectOption(userData.country);
     await this.page.waitForTimeout(500);
     
     // Select state
-    await this.stateDropdown.selectOption(userData.state);
+    await this.stateSelect.selectOption(userData.state);
     await this.page.waitForTimeout(500);
     
     await this.cityInput.fill(userData.city);
@@ -66,11 +66,9 @@ export class BillingAddressPage extends BasePage {
 
   /**
    * Click Continue button to proceed to shipping address
-   * Includes a 1000ms wait to allow page transition to complete
    */
   async clickContinue(): Promise<void> {
-    await this.continueButton.waitFor({ state: 'visible', timeout: 5000 });
-    await this.continueButton.click({ timeout: 5000 });
+    await this.clickButton(this.continueButton, 'Continue on Billing Address');
     // Allow page to transition to next step before proceeding
     await this.page.waitForTimeout(1000);
   }
