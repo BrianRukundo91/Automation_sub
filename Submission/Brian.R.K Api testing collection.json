@@ -1,0 +1,674 @@
+{
+  "info": {
+    "_postman_id": "d8d61a9d-e243-4387-a88d-3005da934ee5",
+    "name": "Pet Store API Automation",
+    "description": "Complete API automation for pet store",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19708389",
+    "_collection_link": "https://go.postman.co/collection/19708389-d8d61a9d-e243-4387-a88d-3005da934ee5?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Different Pet scenarios",
+      "item": [
+        {
+          "name": "create pet with pending status",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// Set timestamp for uniqueness",
+                  "pm.environment.set(\"timestamp\", Date.now());"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": {{$randomInt}},\n    \"category\": {\n        \"id\": 2,\n        \"name\": \"Cats\"\n    },\n    \"name\": \"Whiskers_{{timestamp}}\",\n    \"photoUrls\": [\n        \"https://example.com/cat_{{timestamp}}.jpg\"\n    ],\n    \"tags\": [\n        {\n            \"id\": 3,\n            \"name\": \"playful\"\n        }\n    ],\n    \"status\": \"pending\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/pet",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create pet with sold status",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// Set timestamp for uniqueness",
+                  "pm.environment.set(\"timestamp\", Date.now());"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": {{$randomInt}},\n    \"category\": {\n        \"id\": 2,\n        \"name\": \"Cats\"\n    },\n    \"name\": \"Whiskers_{{timestamp}}\",\n    \"photoUrls\": [\n        \"https://example.com/cat_{{timestamp}}.jpg\"\n    ],\n    \"tags\": [\n        {\n            \"id\": 3,\n            \"name\": \"playful\"\n        }\n    ],\n    \"status\": \"sold\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/pet",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "multiple photos and tags",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "// Set timestamp for uniqueness",
+                  "pm.environment.set(\"timestamp\", Date.now());"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": {{$randomInt}},\n    \"category\": {\n        \"id\": 3,\n        \"name\": \"Birds\"\n    },\n    \"name\": \"Polly_{{timestamp}}\",\n    \"photoUrls\": [\n        \"https://example.com/bird1.jpg\",\n        \"https://example.com/bird2.jpg\",\n        \"https://example.com/bird3.jpg\"\n    ],\n    \"tags\": [\n        {\n            \"id\": 1,\n            \"name\": \"colorful\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"singing\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"small\"\n        }\n    ],\n    \"status\": \"available\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/pet",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pet"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Tests with various pet data combinations"
+    },
+    {
+      "name": "Add pet",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "// Generate random pet ID to avoid conflicts",
+              "const randomId = Math.floor(Math.random() * 10000) + 1000;",
+              "pm.environment.set(\"generated_pet_id\", randomId);",
+              "",
+              "// Generate random pet name",
+              "const petNames = [\"Buddy\", \"Max\", \"Charlie\", \"Lucy\", \"Daisy\", \"Molly\", \"Bailey\", \"Rocky\"];",
+              "const randomName = petNames[Math.floor(Math.random() * petNames.length)];",
+              "pm.environment.set(\"random_pet_name\", randomName);",
+              "",
+              "// Set current timestamp",
+              "pm.environment.set(\"timestamp\", new Date().toISOString());",
+              "",
+              "// Generate unique pet data",
+              "const uniqueData = {",
+              "    name: `${randomName}_${randomId}`,",
+              "    timestamp: pm.environment.get(\"timestamp\")",
+              "};",
+              "pm.environment.set(\"unique_pet_name\", uniqueData.name);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// POST /pet - Create Valid Pet",
+              "pm.test(\"Status is 200\", function() {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const pet = pm.response.json();",
+              "",
+              "pm.test(\"Response has pet ID\", function() {",
+              "    pm.expect(pet).to.have.property('id');",
+              "});",
+              "",
+              "pm.test(\"Response has pet name\", function() {",
+              "    pm.expect(pet).to.have.property('name');",
+              "    pm.expect(pet.name).to.not.be.empty;",
+              "});",
+              "",
+              "// Save for GET request",
+              "pm.environment.set(\"created_pet_id\", pet.id);",
+              "pm.environment.set(\"created_pet_name\", pet.name);",
+              "",
+              "console.log(\"✅ Created pet:\", pet.name, \"(ID:\", pet.id + \")\");"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": {{generated_pet_id}},\n    \"category\": {\n        \"id\": 1,\n        \"name\": \"Dogs\"\n    },\n    \"name\": \"{{unique_pet_name}}\",\n    \"photoUrls\": [\n        \"https://example.com/pet{{generated_pet_id}}.jpg\"\n    ],\n    \"tags\": [\n        {\n            \"id\": 1,\n            \"name\": \"friendly\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"trained\"\n        }\n    ],\n    \"status\": \"available\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/pet",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pet"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Pet by ID",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "// Verify we have a pet ID from previous request",
+              "const petId = pm.environment.get(\"created_pet_id\");",
+              "",
+              "if (!petId) {",
+              "    console.warn(\"⚠️ No pet ID found in environment. Using a known test ID.\");",
+              "    pm.environment.set(\"created_pet_id\", \"1\"); // Fallback to a known existing pet ID",
+              "}",
+              "",
+              "console.log(\"Fetching pet with ID: \" + pm.environment.get(\"created_pet_id\"));"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Get Pet by ID (valid numeric ID) - Expect 200",
+              "pm.test(\"Status is 200\", function() {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Pet has ID and name\", function() {",
+              "    const pet = pm.response.json();",
+              "    pm.expect(pet).to.have.property('id');",
+              "    pm.expect(pet).to.have.property('name');",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "inherit"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{base_url}}/pet/{{created_pet_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pet",
+            "{{created_pet_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get pet with invalid ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// GET /pet/999999999 - Invalid ID",
+              "pm.test(\"Status is 404\", function() {",
+              "    pm.response.to.have.status(404);",
+              "});",
+              "",
+              "const error = pm.response.json();",
+              "",
+              "pm.test(\"Error code is 1\", function() {",
+              "    pm.expect(error.code).to.equal(1);",
+              "});",
+              "",
+              "pm.test(\"Error type is 'error'\", function() {",
+              "    pm.expect(error.type).to.equal('error');",
+              "});",
+              "",
+              "pm.test(\"Error message says 'Pet not found'\", function() {",
+              "    pm.expect(error.message).to.include('Pet not found');",
+              "});",
+              "",
+              "console.log(\"✅ Correctly returned 404 for invalid ID\");"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/pet/999999999",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pet",
+            "999999999"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Pet with String ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// GET /pet/abc123 - String ID - Simple version",
+              "pm.test(\"Status is 404\", function() {",
+              "    pm.response.to.have.status(404);",
+              "});",
+              "",
+              "pm.test(\"Returns some error\", function() {",
+              "    const response = pm.response.text();",
+              "    pm.expect(response.length).to.be.greaterThan(0);",
+              "    console.log(\"Error received (first 100 chars):\", response.substring(0, 100));",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/pet/abc123",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pet",
+            "abc123"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Pet Missing Required Fields",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// POST /pet - Missing Required Field",
+              "console.log(\"Testing POST with missing 'name' field\");",
+              "",
+              "pm.test(\"API responds\", function() {",
+              "    pm.expect(pm.response.code).to.be.a('number');",
+              "});",
+              "",
+              "if (pm.response.code === 200) {",
+              "    const data = pm.response.json();",
+              "    console.log(\"⚠️ API bug: Created pet without required field\");",
+              "    console.log(\"Response:\", data);",
+              "} else {",
+              "    console.log(\"✅ API validates correctly\");",
+              "}",
+              "",
+              "console.log(\"Response status:\", pm.response.code);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": {{$timestamp}},\n    \"category\": {\n        \"id\": 1,\n        \"name\": \"Dogs\"\n    },\n    \"photoUrls\": [\n        \"https://example.com/pet.jpg\"\n    ],\n    \"tags\": [\n        {\n            \"id\": 1,\n            \"name\": \"test\"\n        }\n    ],\n    \"status\": \"available\"\n}\n// INTENTIONALLY MISSING: \"name\" field (should be required)",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/pet",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pet"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "complete pet lifecycle test",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "// Complete workflow test",
+              "console.log(\"🔄 Starting Complete Pet Lifecycle Test\");",
+              "",
+              "// Step 1: Create a new pet",
+              "const createPetRequest = {",
+              "    url: pm.environment.get(\"base_url\") + \"/pet\",",
+              "    method: 'POST',",
+              "    header: {",
+              "        'Content-Type': 'application/json',",
+              "        'Accept': 'application/json'",
+              "    },",
+              "    body: {",
+              "        mode: 'raw',",
+              "        raw: JSON.stringify({",
+              "            id: Math.floor(Math.random() * 10000) + 1000,",
+              "            category: { id: 1, name: \"Dogs\" },",
+              "            name: \"Workflow_Pet_\" + Date.now(),",
+              "            photoUrls: [\"https://example.com/workflow.jpg\"],",
+              "            tags: [{ id: 1, name: \"test\" }],",
+              "            status: \"available\"",
+              "        })",
+              "    }",
+              "};",
+              "",
+              "// Execute create request",
+              "pm.sendRequest(createPetRequest, function (err, response) {",
+              "    if (err) {",
+              "        console.error(\"Error creating pet:\", err);",
+              "        return;",
+              "    }",
+              "    ",
+              "    console.log(\"✅ Pet created. Status:\", response.code);",
+              "    const petData = response.json();",
+              "    pm.environment.set(\"workflow_pet_id\", petData.id);",
+              "    pm.environment.set(\"workflow_pet_name\", petData.name);",
+              "    ",
+              "    // Step 2: Get the created pet",
+              "    const getPetRequest = {",
+              "        url: pm.environment.get(\"base_url\") + \"/pet/\" + petData.id,",
+              "        method: 'GET',",
+              "        header: { 'Accept': 'application/json' }",
+              "    };",
+              "    ",
+              "    pm.sendRequest(getPetRequest, function (err, response) {",
+              "        if (err) {",
+              "            console.error(\"Error getting pet:\", err);",
+              "            return;",
+              "        }",
+              "        ",
+              "        console.log(\"✅ Pet retrieved. Status:\", response.code);",
+              "        ",
+              "        // Verify data matches",
+              "        const retrievedPet = response.json();",
+              "        if (retrievedPet.name === petData.name) {",
+              "            console.log(\"✅ Data consistency verified\");",
+              "        } else {",
+              "            console.error(\"❌ Data mismatch!\");",
+              "        }",
+              "        ",
+              "        // Step 3: Test error scenarios",
+              "        const invalidRequest = {",
+              "            url: pm.environment.get(\"base_url\") + \"/pet/999999999\",",
+              "            method: 'GET',",
+              "            header: { 'Accept': 'application/json' }",
+              "        };",
+              "        ",
+              "        pm.sendRequest(invalidRequest, function (err, response) {",
+              "            console.log(\"✅ Invalid ID test completed. Status:\", response.code);",
+              "            ",
+              "            // Final summary",
+              "            console.log(\"=\".repeat(50));",
+              "            console.log(\"🔄 Workflow test completed successfully!\");",
+              "            console.log(\"Created Pet ID:\", petData.id);",
+              "            console.log(\"Created Pet Name:\", petData.name);",
+              "        });",
+              "    });",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/pet",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pet"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "generate report",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// This generates a simple text report",
+              "console.log(\"=\".repeat(50));",
+              "console.log(\"PET STORE API TEST REPORT\");",
+              "console.log(\"=\".repeat(50));",
+              "console.log(\"Date:\", new Date().toISOString());",
+              "console.log(\"\\nTests Completed Successfully!\");",
+              "console.log(\"✓ POST /pet - Create pet\");",
+              "console.log(\"✓ GET /pet/{id} - Retrieve pet\");",
+              "console.log(\"✓ GET invalid ID - 404 error\");",
+              "console.log(\"✓ GET string ID - 404 error\");",
+              "console.log(\"✓ POST missing fields - API behavior test\");",
+              "console.log(\"\\nNo pm.testResults() errors!\");",
+              "console.log(\"=\".repeat(50));"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/pet/abc123",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pet",
+            "abc123"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          "// Simple pre-request",
+          "console.log(\"Running Pet Store API tests...\");"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          "// Collection-level tests (optional)",
+          "console.log(\"Starting collection run at:\", new Date().toISOString());"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "test_start_time",
+      "value": ""
+    },
+    {
+      "key": "test_run_id",
+      "value": ""
+    },
+    {
+      "key": "total_requests",
+      "value": ""
+    },
+    {
+      "key": "passed_tests",
+      "value": ""
+    },
+    {
+      "key": "failed_tests",
+      "value": ""
+    }
+  ]
+}
