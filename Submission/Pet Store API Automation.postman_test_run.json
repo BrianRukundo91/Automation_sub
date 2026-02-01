@@ -1,0 +1,285 @@
+{
+	"id": "13d12388-ec16-455e-9b33-02d9926153e2",
+	"name": "Pet Store API Automation",
+	"timestamp": "2026-01-31T15:32:20.491Z",
+	"collection_id": "19708389-d8d61a9d-e243-4387-a88d-3005da934ee5",
+	"folder_id": 0,
+	"environment_id": "19708389-73a82aac-3b08-4799-8544-27c7570ff870",
+	"totalPass": 12,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2026-01-31T15:32:16.706Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "55ce435a-86b7-4cc0-b87b-a71ef0ca6ffa",
+			"name": "create pet with pending status",
+			"url": "https://petstore.swagger.io/v2/pet",
+			"time": 1298,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1298
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b5e6872c-0ffd-4be3-80d8-463e93fe98eb",
+			"name": "create pet with sold status",
+			"url": "https://petstore.swagger.io/v2/pet",
+			"time": 247,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				247
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d125101d-5dd9-4c9f-9f57-1849d3daf5f1",
+			"name": "multiple photos and tags",
+			"url": "https://petstore.swagger.io/v2/pet",
+			"time": 254,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				254
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "38d87848-dda4-4d05-87da-e06752fb2a93",
+			"name": "Add pet",
+			"url": "https://petstore.swagger.io/v2/pet",
+			"time": 259,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status is 200": true,
+				"Response has pet ID": true,
+				"Response has pet name": true
+			},
+			"testPassFailCounts": {
+				"Status is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has pet ID": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has pet name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				259
+			],
+			"allTests": [
+				{
+					"Status is 200": true,
+					"Response has pet ID": true,
+					"Response has pet name": true
+				}
+			]
+		},
+		{
+			"id": "d3c8d91f-cac1-4401-935c-cbfdc1fc5980",
+			"name": "Get Pet by ID",
+			"url": "https://petstore.swagger.io/v2/pet/1191",
+			"time": 244,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status is 200": true,
+				"Pet has ID and name": true
+			},
+			"testPassFailCounts": {
+				"Status is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Pet has ID and name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				244
+			],
+			"allTests": [
+				{
+					"Status is 200": true,
+					"Pet has ID and name": true
+				}
+			]
+		},
+		{
+			"id": "97ad2f84-d383-47e1-a830-2ba08343d2be",
+			"name": "Get pet with invalid ID",
+			"url": "https://petstore.swagger.io/v2/pet/999999999",
+			"time": 244,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status is 404": true,
+				"Error code is 1": true,
+				"Error type is 'error'": true,
+				"Error message says 'Pet not found'": true
+			},
+			"testPassFailCounts": {
+				"Status is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Error code is 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Error type is 'error'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Error message says 'Pet not found'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				244
+			],
+			"allTests": [
+				{
+					"Status is 404": true,
+					"Error code is 1": true,
+					"Error type is 'error'": true,
+					"Error message says 'Pet not found'": true
+				}
+			]
+		},
+		{
+			"id": "144f948a-8146-4a86-b074-360f22eef020",
+			"name": "Get Pet with String ID",
+			"url": "https://petstore.swagger.io/v2/pet/abc123",
+			"time": 263,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status is 404": true,
+				"Returns some error": true
+			},
+			"testPassFailCounts": {
+				"Status is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns some error": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				263
+			],
+			"allTests": [
+				{
+					"Status is 404": true,
+					"Returns some error": true
+				}
+			]
+		},
+		{
+			"id": "8e77afd4-594a-4bdb-ade0-a30e032873b0",
+			"name": "Create Pet Missing Required Fields",
+			"url": "https://petstore.swagger.io/v2/pet",
+			"time": 251,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"API responds": true
+			},
+			"testPassFailCounts": {
+				"API responds": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				251
+			],
+			"allTests": [
+				{
+					"API responds": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 3060,
+	"collection": {
+		"requests": [
+			{
+				"id": "55ce435a-86b7-4cc0-b87b-a71ef0ca6ffa",
+				"method": "POST"
+			},
+			{
+				"id": "b5e6872c-0ffd-4be3-80d8-463e93fe98eb",
+				"method": "POST"
+			},
+			{
+				"id": "d125101d-5dd9-4c9f-9f57-1849d3daf5f1",
+				"method": "POST"
+			},
+			{
+				"id": "38d87848-dda4-4d05-87da-e06752fb2a93",
+				"method": "POST"
+			},
+			{
+				"id": "d3c8d91f-cac1-4401-935c-cbfdc1fc5980",
+				"method": "GET"
+			},
+			{
+				"id": "97ad2f84-d383-47e1-a830-2ba08343d2be",
+				"method": "GET"
+			},
+			{
+				"id": "144f948a-8146-4a86-b074-360f22eef020",
+				"method": "GET"
+			},
+			{
+				"id": "8e77afd4-594a-4bdb-ade0-a30e032873b0",
+				"method": "POST"
+			}
+		]
+	}
+}

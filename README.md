@@ -1,5 +1,7 @@
 # Playwright Automation Project - Demo Web Shop
 
+> **📁 All project deliverables are located in the [Submission](./Submission) folder**
+
 A professional automation testing framework using Playwright with TypeScript for the Demo Web Shop application.
 
 ## Project Status
